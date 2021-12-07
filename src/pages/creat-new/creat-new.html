@@ -1,0 +1,341 @@
+<!--
+  Generated template for the CreatNewPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="purple">
+  	<button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Create new {{title}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+	<aside class="aside-left pull-left {{toggle}}">
+	<ion-list no-lines>
+		<button ion-item style="border-bottom: 1px solid #e5e4e2;" (click)="toggleMenu();">
+			Menu <ion-icon name="menu" item-end> </ion-icon>
+		</button>
+		<button ion-item  [ngClass]="{'list-active': dToggles=== 'sActive'}" (click)=" dToggles = 'sActive'; title='Student' " >
+			Students
+		</button>
+		<button ion-item  [ngClass]="{'list-active': dToggles=== 'pActive'}" (click)=" dToggles = 'pActive'; title='Parent' " >
+			Parents
+		</button>
+		<button ion-item  [ngClass]="{'list-active': dToggles=== 'tActive'}" (click)=" dToggles = 'tActive'; title='Teacher' ">
+			Teachers
+		</button>
+		<button ion-item  [ngClass]="{'list-active': dToggles=== 'bActive'}" (click)=" dToggles = 'bActive'; title='Bus Staff' ">
+			Bus Staffs
+		</button>
+		<button ion-item  [ngClass]="{'list-active': dToggles=== 'lActive'}" (click)=" dToggles = 'lActive'; title='Library Staff' ">
+			Library Staffs
+		</button>
+	</ion-list>
+	</aside>
+
+	<aside class="aside-right {{rToggle}}" *ngIf="dToggles=== 'sActive'" style="background: url(assets/imgs/bg1.jpg); background-repeat: repeat; background-size: 100%; min-height: 80vh;" padding>
+		<ion-card style="width: 90%; max-width: 450px; margin: 0 auto;" class="nStd" padding>
+	  		<h2 style="padding: 5px 15px;"> Please input student registration details below </h2>
+	  		  <ion-item>
+			    <ion-label floating>Full Name</ion-label>
+			    <ion-input type="text"></ion-input>
+			  </ion-item>
+
+			  <ion-item >
+		          <ion-label>Gender</ion-label>
+		          <ion-select [(ngModel)]="gender">
+		            <ion-option value="">MALE</ion-option>
+		            <ion-option value="paid">FEMALE</ion-option>
+		          </ion-select>
+		      </ion-item>
+
+			  <ion-item>
+			    <ion-label floating>Level</ion-label>
+			    <ion-input type="text"></ion-input>
+			  </ion-item>
+
+			  <ion-item>
+				  <ion-label class="label-date">Select Date of Birth</ion-label>
+				  <ion-datetime displayFormat="MMMM/DD/YYYY" [(ngModel)]="myDate"></ion-datetime>
+				  
+			  </ion-item>
+
+			  <ion-item>
+			    <ion-label floating>Parent id</ion-label>
+			    <ion-input type="text"></ion-input>
+			  </ion-item>
+
+			  <ion-item>
+			    <ion-label floating>Nationality</ion-label>
+			    <ion-input type="text" value="Indian"></ion-input>
+			  </ion-item>
+
+			  <ion-item>
+			    <ion-label floating>Address</ion-label>
+			    <ion-input type="text" value=""></ion-input>
+			  </ion-item>
+
+			  <ion-item>
+			    <ion-label stacked>Profile picture</ion-label>
+			    <ion-input type="file" ></ion-input>
+			  </ion-item>
+
+			  <div padding>
+				  <button ion-button block color="purple"> Register </button>
+			  </div>
+	  	</ion-card>
+	</aside>
+	<aside class="aside-right {{rToggle}}" *ngIf="dToggles=== 'pActive'" style="background: url(assets/imgs/bg1.jpg); background-repeat: repeat; background-size: 100%; min-height: 80vh;" padding>
+		<ion-card style="width: 90%; max-width: 450px; margin: 0 auto;" class="nStd" padding>
+	  		<h2 style="padding: 5px 15px;"> Please input Parent registration details below </h2>
+	  		  <ion-item>
+			    <ion-label floating>Full Name</ion-label>
+			    <ion-input type="text"></ion-input>
+			  </ion-item>
+
+			  <ion-item >
+		          <ion-label>Gender</ion-label>
+		          <ion-select [(ngModel)]="gender">
+		            <ion-option value="">MALE</ion-option>
+		            <ion-option value="paid">FEMALE</ion-option>
+		          </ion-select>
+		      </ion-item>
+
+			  <ion-item>
+			    <ion-label floating>Parent id</ion-label>
+			    <ion-input type="text"></ion-input>
+			  </ion-item>
+
+			  <ion-item>
+			    <ion-label floating>Nationality</ion-label>
+			    <ion-input type="text" value="Indian"></ion-input>
+			  </ion-item>
+
+			  <ion-item>
+			    <ion-label floating>Address</ion-label>
+			    <ion-input type="text" value=""></ion-input>
+			  </ion-item>
+
+			  <ion-item>
+			    <ion-label stacked>Profile picture</ion-label>
+			    <ion-input type="file" ></ion-input>
+			  </ion-item>
+
+			  <div padding>
+				  <button ion-button block color="purple"> Register </button>
+			  </div>
+	  	</ion-card>
+	</aside>
+	<aside class="aside-right {{rToggle}}" *ngIf="dToggles=== 'tActive'" style="background: url(assets/imgs/bg1.jpg); background-repeat: repeat; background-size: 100%; min-height: 80vh;" padding>
+		<ion-card style="width: 90%; max-width: 450px; margin: 0 auto;" class="nStd" padding>
+	  		<h2 style="padding: 5px 15px;"> Please input teacher's registration details below </h2>
+	  		  <ion-item>
+			    <ion-label floating>Full Name</ion-label>
+			    <ion-input type="text"></ion-input>
+			  </ion-item>
+
+			  <ion-item >
+		          <ion-label>Gender</ion-label>
+		          <ion-select [(ngModel)]="gender">
+		            <ion-option value="">MALE</ion-option>
+		            <ion-option value="paid">FEMALE</ion-option>
+		          </ion-select>
+		      </ion-item>
+
+			  <ion-item>
+			    <ion-label floating>Course</ion-label>
+			    <ion-input type="text"></ion-input>
+			  </ion-item>
+
+			  <ion-item >
+		          <ion-label>Class Teacher</ion-label>
+		          <ion-select [(ngModel)]="classT4">
+		            <ion-option value="" selected="true">None</ion-option>
+		            <ion-option value="paid">Level 1</ion-option> <ion-option value="paid">Level 2</ion-option>
+		            <ion-option value="paid">Level 3</ion-option> <ion-option value="paid">Level 4</ion-option>
+		            <ion-option value="paid">Level 5</ion-option> <ion-option value="paid">Level 6</ion-option>
+		          </ion-select>
+		      </ion-item>
+
+			  <ion-item>
+			    <ion-label floating>Nationality</ion-label>
+			    <ion-input type="text" value="Indian"></ion-input>
+			  </ion-item>
+
+			  <ion-item>
+			    <ion-label floating>Address</ion-label>
+			    <ion-input type="text" value=""></ion-input>
+			  </ion-item>
+
+			  <ion-item>
+			    <ion-label stacked>Profile picture</ion-label>
+			    <ion-input type="file" ></ion-input>
+			  </ion-item>
+
+			  <div padding>
+				  <button ion-button block color="purple"> Register </button>
+			  </div>
+	  	</ion-card>
+	</aside>
+	<aside class="aside-right {{rToggle}}" *ngIf="dToggles=== 'bActive'" style="background: url(assets/imgs/bg1.jpg); background-repeat: repeat; background-size: 100%; min-height: 80vh;" padding>
+		<ion-card style="width: 90%; max-width: 450px; margin: 0 auto;" class="nStd" padding>
+	  		<h2 style="padding: 5px 15px;"> Please input Bus Staff's registration details below </h2>
+	  		  <ion-item>
+			    <ion-label floating>Full Name</ion-label>
+			    <ion-input type="text"></ion-input>
+			  </ion-item>
+
+			  <ion-item >
+		          <ion-label>Gender</ion-label>
+		          <ion-select [(ngModel)]="gender">
+		            <ion-option value="">MALE</ion-option>
+		            <ion-option value="paid">FEMALE</ion-option>
+		          </ion-select>
+		      </ion-item>
+
+			  <ion-item>
+			    <ion-label floating>Position</ion-label>
+			    <ion-input type="text"></ion-input>
+			  </ion-item>
+
+			  <ion-item>
+			    <ion-label floating>Nationality</ion-label>
+			    <ion-input type="text" value="Indian"></ion-input>
+			  </ion-item>
+
+			  <ion-item>
+			    <ion-label floating>Address</ion-label>
+			    <ion-input type="text" value=""></ion-input>
+			  </ion-item>
+
+			  <ion-item>
+			    <ion-label stacked>Profile picture</ion-label>
+			    <ion-input type="file" ></ion-input>
+			  </ion-item>
+
+			  <div padding>
+				  <button ion-button block color="purple"> Register </button>
+			  </div>
+	  	</ion-card>
+	</aside>
+	<aside class="aside-right {{rToggle}}" *ngIf="dToggles=== 'lActive'" style="background: url(assets/imgs/bg1.jpg); background-repeat: repeat; background-size: 100%; min-height: 80vh;" padding>
+		<ion-card style="width: 90%; max-width: 450px; margin: 0 auto;" class="nStd" padding>
+	  		<h2 style="padding: 5px 15px;"> Please input Library Staff's registration details below </h2>
+	  		  <ion-item>
+			    <ion-label floating>Full Name</ion-label>
+			    <ion-input type="text"></ion-input>
+			  </ion-item>
+
+			  <ion-item >
+		          <ion-label>Gender</ion-label>
+		          <ion-select [(ngModel)]="gender">
+		            <ion-option value="">MALE</ion-option>
+		            <ion-option value="paid">FEMALE</ion-option>
+		          </ion-select>
+		      </ion-item>
+
+			  <ion-item>
+			    <ion-label floating>Position</ion-label>
+			    <ion-input type="text"></ion-input>
+			  </ion-item>
+
+			  <ion-item>
+			    <ion-label floating>Nationality</ion-label>
+			    <ion-input type="text" value="Indian"></ion-input>
+			  </ion-item>
+
+			  <ion-item>
+			    <ion-label floating>Address</ion-label>
+			    <ion-input type="text" value=""></ion-input>
+			  </ion-item>
+
+			  <ion-item>
+			    <ion-label stacked>Profile picture</ion-label>
+			    <ion-input type="file" ></ion-input>
+			  </ion-item>
+
+			  <div padding>
+				  <button ion-button block color="purple"> Register </button>
+			  </div>
+	  	</ion-card>
+	</aside>
+</ion-content>
+
+<style type="text/css">
+
+	.nStd ion-item ion-input, .nStd ion-item ion-select,.nStd ion-item ion-datetime, .label-date{
+  	border-bottom: 1px solid #e5e4e2;
+   }
+   .label-date {
+   	 padding-bottom: 25px;
+   }
+
+  table tr td {
+    text-align: center;
+  }
+  table tbody tr:nth-child(even) {
+    background: rgba(220,220,220,0.2);
+  }
+	 .aside-left {
+	 	background: #333;
+	 	width: 300px; height: 700px; max-height: 85vh;
+	 	box-shadow: 2px 0px 3px #B6B6B4;
+	 	position: fixed; top: 56px; left: 0px; color: #fff;
+
+	 	/*margin-left: -260px;*/
+	 }
+	 .aside-left button {
+	 	background-color: transparent; color: #fff;
+	 }
+	  .full {
+	 	left: 0;
+	 	-webkit-transition: left 0.7s; /* Safari */
+	    transition: left 0.7s;
+	 }
+	  .part {
+	 	left: -254px;
+	 	-webkit-transition: left 0.7s; /* Safari */
+	    transition: left 0.7s;
+	 }
+	 .aside-left .aside-head {
+		padding: 30px; font-weight: bold; padding-left: 0;
+		float: left; width: 100%;
+	}
+	 .aside-left .aside-head a.menu-btn {
+		color: #fff; margin-right: -26px;
+	}
+	 .aside-left .lists .list {
+		
+	}
+	 .aside-left .lists .list a{
+		color: #fff; font-weight: bold; 
+		display: block; text-align: left;
+		padding-left: 20px;
+	}
+	.aside-left button.list-active {
+		opacity: 0.8; background-color: rgba(255,255,255,0); border-left: 3px solid #fff; border-bottom: 0.4px solid #e5e4e2;
+	}
+
+	.aside-right {
+		margin-left: 300px;
+		min-width: 500px; 
+		overflow-x: scroll;
+	}
+	.rightPart {
+		margin-left: 50px;
+	 	-webkit-transition: margin-left 0.7s; /* Safari */
+	    transition: margin-left 0.7s;
+	}
+	.rightFull {
+		margin-left: 300px;
+	 	-webkit-transition: margin-left 0.7s; /* Safari */
+	    transition: margin-left 0.7s;
+	}
+</style>

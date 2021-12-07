@@ -1,0 +1,32 @@
+<ion-menu [content]="content">
+  <ion-header>
+    <ion-toolbar color="trans10">
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-list>
+      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+        {{p.title}}
+      </button>
+      <button ion-item (click)=" dropDown(); ">
+        Entities <ion-icon name="arrow-dropdown" item-end></ion-icon>
+      </button>
+      <ion-list *ngIf="directT" no-lines style="padding-left: 15px;">
+        <button menuClose ion-item *ngFor="let p of pagesD" (click)="openPage(p)">
+          {{p.title}}
+        </button>
+      </ion-list>
+
+      <button menuClose ion-item *ngFor="let p of pagesE" (click)="openPage(p)">
+        {{p.title}}
+      </button>
+        
+    </ion-list>
+  </ion-content>
+
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

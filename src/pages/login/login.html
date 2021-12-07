@@ -1,0 +1,61 @@
+<!--
+  Generated template for the LoginPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-content padding style="background: url(assets/imgs/bg_black.jpg); background-repeat: repeat; background-size: 100%;">
+	<div style="margin: 0 auto; width: 90%; min-height: 600px;" *ngIf = "loginShow">
+			
+		<ion-card style=" width: 90%; max-width: 400px; margin: 0 auto; margin-top: 60px; min-height: 33vh; padding-top: 4vh;" padding>
+			<h2 style="text-align: center; font-size: large; font-family: 'ROBOTO'; font-weight: bold;">Webneel International</h2>
+
+			<ion-card style="width: 60%; max-width: 300px; margin: 0 auto; background: rgba(0,0,0,0.1);" padding>
+				<div class="school" style="width: 60%; max-width: 200px; margin: 0 auto;"> <img src="assets/imgs/school_logo.jpg" style="width: 100%;"></div>
+			</ion-card>
+			
+				<h2 style="padding: 5px 15px;"> Please input your admin login details below </h2>
+			<ion-list>
+
+			  <ion-item>
+			    <ion-label>Email</ion-label>
+			    <ion-input type="email"></ion-input>
+			  </ion-item>
+
+			  <ion-item>
+			    <ion-label>Password</ion-label>
+			    <ion-input type="password"></ion-input>
+			  </ion-item>
+
+			</ion-list>
+
+			<div padding>
+			  <button block ion-button (click)="signin();" color="purple">Admin Sign In</button>
+			</div>
+
+			<a href="#" (click)="chPasswordToggle();">Click here to change password or for forgot password</a>
+		</ion-card>
+	</div>
+	<div style="margin: 0 auto; width: 90%; min-height: 600px;" *ngIf = "chPassShow">
+			
+		<ion-card style=" width: 90%; max-width: 400px; margin: 0 auto; margin-top: 60px; min-height: 300px; padding-top: 4vh;" padding>
+			<h2 style="padding: 5px 15px;"> Please input your email detail below </h2>
+
+			<ion-item>
+			    <ion-label>Email</ion-label>
+			    <ion-input type="email"></ion-input>
+			</ion-item>
+
+			<div padding>
+			  <button block ion-button (click)="chPassword();" color="purple">Send secure Link to my mail</button>
+		    </div>
+		    <p style="padding-top: 50px;">
+		    	<a href="#" (click)="loginPToggle();">Go back to Login Page</a>
+		    </p>
+		</ion-card>
+
+	</div>
+		
+
+</ion-content>

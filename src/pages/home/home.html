@@ -1,0 +1,68 @@
+<ion-header >
+  <ion-navbar color="purple">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title> School Admin Dashboard <ion-icon name="apps"></ion-icon></ion-title>
+  </ion-navbar>
+  <ion-toolbar>
+    
+    <ion-grid>
+      <ion-row>
+        <ion-col col-7>
+          <ion-searchbar (ionInput)="getItems($event)" animated=true placeholder="name or level" style="background: rgba(0,0,0,0.1);" id="searchbar"></ion-searchbar>
+        </ion-col>
+        <ion-col col-5>
+          <ion-list >
+            <ion-item style="background-color: rgba(0,0,0,0.1); color: #000;">
+              <ion-label>Filter By</ion-label>
+              <ion-select [(ngModel)]="category">
+                <ion-option value="">All</ion-option>
+                <ion-option value="paid">Paid</ion-option>
+                <ion-option value="not paid">Not Paid</ion-option>
+                <ion-option value="part paid">Part Paid</ion-option>
+                <ion-option value="valid">Bus valid</ion-option>
+                <ion-option value="invalid">Bus invalid</ion-option>
+              </ion-select>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <table style="width: 100%;" class="dtable">
+    <thead>
+      <tr>
+        <th>Prf Pix</th> <th>Name</th> <th>Level</th> <th>Bus stat</th> <th>Fee Stat</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor=" let student of students | searchFilter2: category">
+        <td style="max-width: 80px;">
+          <ion-avatar>
+            <img src="{{student.dp}}" style="width: 80%; max-width: 70px; margin: 0 auto; border-radius: 50px;">
+          </ion-avatar>
+        </td>
+        <td>{{student.name}}</td>
+        <td>{{student.level}}</td>
+        <td>{{student.bus}}</td>
+        <td>{{student.fee}}</td>
+      </tr>
+    </tbody>
+  </table>
+</ion-content>
+
+<style type="text/css">
+  .dtable {
+    font-size: large;
+  }
+  .dtable tr td {
+    padding-top: 4px; padding-bottom: 4px; text-align: center;
+  }
+  .dtable tbody tr:nth-child(even) {
+    background: rgba(220,220,220,0.2);
+}
+</style>

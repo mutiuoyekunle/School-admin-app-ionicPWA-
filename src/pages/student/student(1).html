@@ -1,0 +1,265 @@
+<!--
+  Generated template for the StudentPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="purple">
+  	<button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>School Admin Dashboard >> Student</ion-title>
+  </ion-navbar>
+
+  <ion-toolbar>
+    <ion-segment [(ngModel)]="stdSeg" color="purple" style=" margin-bottom: -14px;" class="stdSeg"> 
+      <ion-segment-button value="all">
+        <ion-icon name="list"></ion-icon>
+         All
+      </ion-segment-button>
+      <ion-segment-button value="fStat">
+        <ion-icon name="logo-usd"></ion-icon>
+        Fees Status
+      </ion-segment-button>
+      <ion-segment-button value="bStat">
+        <ion-icon name="bus"></ion-icon>
+        Bus status
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content >
+		
+	<div [ngSwitch]="stdSeg">
+	  <ion-list *ngSwitchCase="'all'">
+	  <ion-grid>
+	      <ion-row>
+	        <ion-col col-7>
+	          <ion-searchbar (ionInput)="getItems($event)" animated=true placeholder="name or level" style="background: rgba(0,0,0,0.1);" id="searchbar"></ion-searchbar>
+	        </ion-col>
+	        <ion-col col-5>
+	          <ion-list >
+	            <ion-item style="background-color: rgba(0,0,0,0.1); color: #000;">
+	              <ion-label>Filter By</ion-label>
+	              <ion-select [(ngModel)]="category">
+	                <ion-option value="">All</ion-option>
+	                <ion-option value="paid">Paid</ion-option>
+	                <ion-option value="not paid">Not Paid</ion-option>
+	                <ion-option value="part paid">Part Paid</ion-option>
+	                <ion-option value="valid">Bus valid</ion-option>
+	                <ion-option value="invalid">Bus invalid</ion-option>
+	              </ion-select>
+	            </ion-item>
+	          </ion-list>
+	        </ion-col>
+	      </ion-row>
+	    </ion-grid>
+	    <table style="width: 100%;" class="dtable">
+		    <thead>
+		      <tr>
+		        <th>Prf Pix</th> <th>Name</th> <th>Level</th> <th>Action</th> 
+		      </tr>
+		    </thead>
+		    <tbody>
+		      <tr *ngFor=" let student of students | searchFilter2: category">
+		        <td style="max-width: 80px;">
+		          <ion-avatar>
+		            <img src="{{student.dp}}" style="width: 80%; max-width: 70px; margin: 0 auto; border-radius: 50px;">
+		          </ion-avatar>
+		        </td>
+		        <td>{{student.name}}</td>
+		        <td>{{student.level}}</td>
+		        <td style=""><div style="max-width: 320px; width: 170px;  margin:  0 auto;"> <button ion-button  color="purple">View</button> <button ion-button color="warning">Edit</button></div> </td>
+		      </tr>
+		    </tbody>
+		</table>
+	  </ion-list>
+
+	  
+	  <ion-list *ngSwitchCase="'fStat'">
+	    <ion-grid>
+	      <ion-row>
+	        <ion-col col-7>
+	          <ion-searchbar (ionInput)="getItems($event)" animated=true placeholder="name or level" style="background: rgba(0,0,0,0.1);" id="searchbar"></ion-searchbar>
+	        </ion-col>
+	        <ion-col col-5>
+	          <ion-list >
+	            <ion-item style="background-color: rgba(0,0,0,0.1); color: #000;">
+	              <ion-label>Filter By</ion-label>
+	              <ion-select [(ngModel)]="category">
+	                <ion-option value="">All</ion-option>
+	                <ion-option value="paid">Paid</ion-option>
+	                <ion-option value="not paid">Not Paid</ion-option>
+	                <ion-option value="part paid">Part Paid</ion-option>
+	                <ion-option value="valid">Bus valid</ion-option>
+	                <ion-option value="invalid">Bus invalid</ion-option>
+	              </ion-select>
+	            </ion-item>
+	          </ion-list>
+	        </ion-col>
+	      </ion-row>
+	    </ion-grid>
+
+	    <table style="width: 100%;" class="dtable">
+		    <thead>
+		      <tr>
+		        <th>Prf Pix</th> <th>Name</th> <th>Level</th> <th>Action</th> 
+		      </tr>
+		    </thead>
+		    <tbody>
+		      <tr *ngFor=" let student of students | searchFilter2: category">
+		        <td style="max-width: 80px;">
+		          <ion-avatar>
+		            <img src="{{student.dp}}" style="width: 80%; max-width: 70px; margin: 0 auto; border-radius: 50px;">
+		          </ion-avatar>
+		        </td>
+		        <td>{{student.name}}</td>
+		        <td>{{student.level}}</td>
+		        <td style="">
+				  <ion-item>
+					  <ion-label>Select Stat</ion-label>
+		              <ion-select >
+		                <ion-option value="notPaid" selected="true">Not paid</ion-option>
+		                <ion-option value="partPaid">Part paid</ion-option>
+		                <ion-option value="paid">Paid</ion-option>
+		              </ion-select>
+				  </ion-item>
+				</td>
+		      </tr>
+		    </tbody>
+		</table>
+
+
+
+	    
+	  </ion-list>
+
+	  <ion-list *ngSwitchCase="'bStat'">
+	  <ion-grid>
+	      <ion-row>
+	        <ion-col col-7>
+	          <ion-searchbar (ionInput)="getItems($event)" animated=true placeholder="name or level" style="background: rgba(0,0,0,0.1);" id="searchbar"></ion-searchbar>
+	        </ion-col>
+	        <ion-col col-5>
+	          <ion-list >
+	            <ion-item style="background-color: rgba(0,0,0,0.1); color: #000;">
+	              <ion-label>Filter By</ion-label>
+	              <ion-select [(ngModel)]="category">
+	                <ion-option value="">All</ion-option>
+	                <ion-option value="paid">Paid</ion-option>
+	                <ion-option value="not paid">Not Paid</ion-option>
+	                <ion-option value="part paid">Part Paid</ion-option>
+	                <ion-option value="valid">Bus valid</ion-option>
+	                <ion-option value="invalid">Bus invalid</ion-option>
+	              </ion-select>
+	            </ion-item>
+	          </ion-list>
+	        </ion-col>
+	      </ion-row>
+	    </ion-grid>
+	    
+	    <table style="width: 100%;" class="dtable">
+		    <thead>
+		      <tr>
+		        <th>Prf Pix</th> <th>Name</th> <th>Level</th> <th>Action</th> 
+		      </tr>
+		    </thead>
+		    <tbody>
+		      <tr *ngFor=" let student of students | searchFilter2: category">
+		        <td style="max-width: 80px;">
+		          <ion-avatar>
+		            <img src="{{student.dp}}" style="width: 80%; max-width: 70px; margin: 0 auto; border-radius: 50px;">
+		          </ion-avatar>
+		        </td>
+		        <td>{{student.name}}</td>
+		        <td>{{student.level}}</td>
+		        <td style="">
+				  <ion-item>
+					  <ion-label>Bus valid</ion-label>
+					  <ion-toggle checked="false" (ionChange)="updateBusValid();"></ion-toggle>
+				  </ion-item>
+				</td>
+		      </tr>
+		    </tbody>
+		</table>
+	  </ion-list>
+
+	</div>
+
+</ion-content>
+
+<style type="text/css">
+  .stdSeg ion-segment-button ion-icon {
+  	font-size: 15px; font-weight: bold;
+  }
+  .stdSeg ion-segment-button {
+  	font-size: 16px; font-weight: bold;
+  }
+
+  .dtable {
+    font-size: large;
+  }
+  .dtable tr td {
+    padding-top: 4px; padding-bottom: 4px; text-align: center;
+  }
+  .dtable tbody tr:nth-child(even) {
+    background: rgba(220,220,220,0.2);
+  }
+  .nStd ion-item ion-input, .nStd ion-item ion-select,.nStd ion-item ion-datetime, .label-date{
+  	border-bottom: 1px solid #e5e4e2;
+   }
+   .label-date {
+   	 padding-bottom: 25px;
+   }
+
+
+
+    .aside-left {
+	 	background: #333;
+	 	width: 300px; height: 90vh;
+	 	box-shadow: 2px 0px 3px #B6B6B4;
+	 	position: relative; color: #fff;
+	 	/*margin-left: -260px;*/
+	 }
+	 .aside-left button {
+	 	background-color: transparent; color: #fff;
+	 }
+	  .full {
+	 	margin-left: 0;
+	 	-webkit-transition: margin-left 0.7s; /* Safari */
+	    transition: margin-left 0.7s;
+	 }
+	  .part {
+	 	margin-left: -260px;
+	 	-webkit-transition: margin-left 0.7s; /* Safari */
+	    transition: margin-left 0.7s;
+	 }
+	 .aside-left .aside-head {
+		padding: 30px; font-weight: bold; padding-left: 0;
+		float: left; width: 100%;
+	}
+	 .aside-left .aside-head a.menu-btn {
+		color: #fff; margin-right: -26px;
+	}
+	 .aside-left .lists .list {
+		
+	}
+	 .aside-left .lists .list a{
+		color: #fff; font-weight: bold; 
+		display: block; text-align: left;
+		padding-left: 20px;
+	}
+	.list-active {
+		opacity: 0.8; border-left: 3px solid #0000A0;
+	}
+
+
+
+
+
+
+</style>
